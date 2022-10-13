@@ -28,8 +28,14 @@ functions:
   getTasks:
     handler: src/getTasks.js
     events:
-      - httApi:
+      - httpApi:
         path: /tasks
+        method: get
+  getTask:
+    handler: src/getTask.js
+    events:
+      - httpApi:
+        path: /task/{id}
         method: get
 
 resources:
