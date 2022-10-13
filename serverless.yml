@@ -10,7 +10,7 @@ provider:
       Action:
         - dynamodb:*
       Resource:
-        - 
+        - arn:aws:dynamodb:us-west-2:933649612231:table/taskTable
 
 functions:
   hello:
@@ -25,6 +25,12 @@ functions:
       - httpApi:
           path: /tasks
           method: post
+  getTasks:
+    handler: src/getTasks.js
+    events:
+      - httApi:
+        path: /tasks
+        method: get
 
 resources:
   Resources:
