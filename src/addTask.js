@@ -8,7 +8,7 @@ const addTask = async event => {
   const createdAt = new Date();
   const id = v4();
 
-  const newTask = { id, title, description, createdAt };
+  const newTask = { id, title, description, createdAt, done: false };
 
   await dynamoDb
     .put({
