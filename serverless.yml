@@ -26,23 +26,23 @@ functions:
           path: /tasks
           method: post
   getTasks:
-    handler: src/getTasks.js
+    handler: src/getTasks.getTasks
     events:
       - httpApi:
-        path: /tasks
-        method: get
+          path: /tasks
+          method: get
   getTask:
-    handler: src/getTask.js
+    handler: src/getTask.getTask
     events:
       - httpApi:
-        path: /task/{id}
-        method: get
+          path: /task/{id}
+          method: get
   updateTask:
-    handler: src/updateTask.js
+    handler: src/updateTask.updateTask
     events:
       - httpApi:
-        path: /task/{id}
-        method: put
+          path: /task/{id}
+          method: put
 
 resources:
   Resources:
