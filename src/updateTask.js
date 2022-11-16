@@ -1,10 +1,10 @@
 const AWS = require('aws-sdk');
 
 const updateTask = async event => {
-  const { id } = event.pathParameters;
   const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-  const { done } = JSON.parse(event.body);
+  const { id } = event.pathParameters;
+  const { done, title, description } = JSON.parse(event.body);
 
   await dynamodb
     .update({
@@ -12,7 +12,9 @@ const updateTask = async event => {
       Key: { id },
       UpdateExpression: 'set done = :done',
       ExpressionAttributeValues: {
-        ':done': done
+        ':done': done,
+        ':title': title,
+        ':description': description
       },
       ReturnValues: 'ALL_NEW'
     })
